@@ -1,7 +1,10 @@
+# React (Web + Native) Starter Kit
+
+![reactnative](./public/reactnative.png)
+
+P.C.: [IMG](https://www.jameelmukadam.com/blog/simple-react-native-setup-guide-for-mac)
 
 ## 👋 Intro
-
-A Contacts App that lets you save and manage your phone contacts. Now keep everything organized with your awesome new app! 
 
 This boilerplate launches with a [React Native app](https://facebook.github.io/react-native/). It shares the 'business logic' (_i.e. actions, containers, reducers_) across the platforms, whilst allowing flexibility in View components to ensure your project looks and feels native in each platform.
 
