@@ -10,9 +10,6 @@ export class App extends Component {
     return (
       <View style={styles.container}>
         <Contacts />
-        <Details />
-        <Me />
-        <NewContact />
       </View>
     )
   }
