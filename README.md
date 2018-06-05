@@ -1,4 +1,4 @@
-# React (Web + Native) Starter Kit
+# React Native Contacts App
 
 ![reactnative](./public/reactnative.png)
 
