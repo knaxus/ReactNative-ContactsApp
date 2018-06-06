@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, Platform, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { View } from 'react-native';
 
-import styles, { ICON_SIZE } from './styles';
+import styles from './styles';
 import colors from '../../config/colors';
 import { toPhoneNumber } from '../../helpers/string';
+import ActionRow from './ActionRow';
 
 const Actions = ({ email, cell, phone }) => {
     return (
@@ -13,79 +13,50 @@ const Actions = ({ email, cell, phone }) => {
         <View style={styles.actionContainer}>
 
             {/* Email Details Row */}
-            <View style={styles.actionRow}>
-                <View style={styles.actionInfo}>
-                    <Text style={styles.actionLabel}>Email</Text>
-                    <Text style={styles.actionBody}>{email}</Text>
-                </View>
-                <View style={styles.actionIcons}>
-                    <TouchableOpacity
-                        onPress={() => null}
-                    >
-                        <Icon 
-                            color={colors.link}
-                            size={ICON_SIZE}
-                            style={styles.actionIcon}
-                            name={Platform.OS === 'ios'? 'ios-mail' : 'md-mail'}
-                        />
-                    </TouchableOpacity>
-                </View>
-                
-            </View>
-
+            <ActionRow 
+                label="Email"
+                body={email}
+                actions={[
+                    {
+                        onPress: () => null, 
+                        iosIcon: 'ios-mail', 
+                        androidIcon: 'md-mail',
+                        iconColor: colors.mailIconColor,
+                    }
+                ]}
+            />
             {/* Cell Phone Row */}
-            <View style={styles.actionRow}>
-                <View style={styles.actionInfo}>
-                    <Text style={styles.actionLabel}>Cell</Text>
-                    <Text style={styles.actionBody}>{toPhoneNumber(cell)}</Text>
-                </View>
-                <View style={styles.actionIcons}>
-                    {/* for CALL icon */}
-                    <TouchableOpacity
-                        onPress={() => null}
-                    >
-                        <Icon 
-                            color={colors.link}
-                            size={ICON_SIZE}
-                            style={styles.actionIcon}
-                            name={Platform.OS === 'ios'? 'ios-call' : 'md-call'}
-                        />
-                    </TouchableOpacity>
-                    {/* for TEXT MSG/SMS icon */}
-                    <TouchableOpacity
-                        onPress={() => null}
-                    >
-                        <Icon 
-                            color={colors.link}
-                            size={ICON_SIZE}
-                            style={styles.actionIcon}
-                            name={Platform.OS === 'ios'? 'ios-text' : 'md-text'}
-                        />
-                    </TouchableOpacity>
-                </View>   
-            </View>
-
-
+            <ActionRow 
+                label="Cell"
+                body={toPhoneNumber(cell)}
+                actions={[
+                    {
+                        onPress: () => null, 
+                        iosIcon: 'ios-call', 
+                        androidIcon: 'md-call',
+                        iconColor: colors.callIconColor,
+                    },
+                    {
+                        onPress: () => null, 
+                        iosIcon: 'ios-text', 
+                        androidIcon: 'md-text',
+                        iconColor: colors.textIconColor,
+                    }
+                ]}
+            />
             {/* Home Phone Row */}
-            <View style={styles.actionRow}>
-                <View style={styles.actionInfo}>
-                    <Text style={styles.actionLabel}>Home</Text>
-                    <Text style={styles.actionBody}>{toPhoneNumber(phone)}</Text>
-                </View>
-                <View style={styles.actionIcons}>
-                    {/* for CALL icon */}
-                    <TouchableOpacity
-                        onPress={() => null}
-                    >
-                        <Icon 
-                            color={colors.link}
-                            size={ICON_SIZE}
-                            style={styles.actionIcon}
-                            name={Platform.OS === 'ios'? 'ios-call' : 'md-call'}
-                        />
-                    </TouchableOpacity>
-                </View>
-            </View>
+            <ActionRow 
+                label="Home"
+                body={toPhoneNumber(phone)}
+                actions={[
+                    {
+                        onPress: () => null, 
+                        iosIcon: 'ios-call', 
+                        androidIcon: 'md-call',
+                        iconColor: colors.callIconColor,
+                    }
+                ]}
+            />
         </View>
     );
 };

@@ -1,9 +1,11 @@
 import styles from './styles';
 import Header from './Header';
+import ActionRow from './ActionRow';
 import Actions from './Actions';
 
 export {
-    Actions,
     Header,
+    ActionRow,
+    Actions,
     styles,
 };

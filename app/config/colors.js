@@ -6,4 +6,7 @@ export default {
     border: '#cccccc',
     grayBackground: '#f9fafb',
     link: '#007aff',
+    mailIconColor: '#fb8c00',
+    callIconColor: '#00c853',
+    textIconColor: '#007aff',
 };
