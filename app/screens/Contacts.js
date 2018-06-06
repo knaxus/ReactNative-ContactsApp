@@ -8,7 +8,7 @@ import { ListItem, styles } from '../components/ListItem/index';
 class Contacts extends Component {
 
     handleRowPress = (item) => {
-        return null;
+        this.props.navigation.navigate('Details', item);
     };
 
     render() {

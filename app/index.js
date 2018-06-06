@@ -1,25 +1,14 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Contacts from './screens/Contacts';
-import Details from './screens/Details';
-import Me from './screens/Me';
-import NewContact from './screens/NewContact';
+
+import { ContactStack } from './config/router.js';
 
 export class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Contacts />
-      </View>
+      <ContactStack />
     )
   }
 };
-
-const styles = StyleSheet.create({
-  container: {
-      flex: 1,
-      justifyContent: 'center',
-  }
-})
 
 export default App;
