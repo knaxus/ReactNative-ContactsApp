@@ -1,7 +1,11 @@
-import { StackNavigator } from 'react-navigation';
+import Recat from 'react';
+import { StackNavigator, TabNavigator } from 'react-navigation';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import Contacts from '../screens/Contacts';
 import Details from '../screens/Details';
+import NewContact from '../screens/NewContact';
+import Me from '../screens/Me';
 
 import { capitalizeFirstLetter } from '../helpers/string';
 
@@ -18,4 +22,46 @@ export const ContactStack = StackNavigator({
             title: `${capitalizeFirstLetter(navigation.state.params.name.first)} ${capitalizeFirstLetter(navigation.state.params.name.last)}`
         }),
     },
+});
+
+export const NewContactStack = StackNavigator({
+    NewContact: {
+        screen: NewContact,
+        navigationOptions: {
+            headerTitle: 'New Contact',
+        },
+    },
+});
+
+export const MeStack = StackNavigator({
+    Me: {
+        screen: Me,
+        navigationOptions: {
+            headerTitle: 'Me',
+        },
+    },
+});
+
+export const Tabs = TabNavigator({
+    Contacts: {
+        screen: ContactStack,
+        navigationOptions: {
+            tabBarLabel: 'Contacts',
+            tabBarIcon: ({ tintColor }) => <Icon name="ios-list" size={35} color={tintColor} />
+        }
+    },
+    NewContact: {
+        screen: NewContactStack,
+        navigationOptions: {
+            tabBarLabel: 'New Contact',
+            tabBarIcon: ({ tintColor }) => <Icon name="ios-add" size={35} color={tintColor} />
+        }
+    },
+    Me: {
+        screen: MeStack,
+        navigationOptions: {
+            tabBarLabel: 'Me',
+            tabBarIcon: ({ tintColor }) => <Icon name="ios-contact" size={35} color={tintColor} />
+        }
+    }
 });
