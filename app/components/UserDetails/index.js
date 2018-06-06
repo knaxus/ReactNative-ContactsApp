@@ -1,11 +1,13 @@
 import styles from './styles';
 import Header from './Header';
-import ActionRow from './ActionRow';
 import Actions from './Actions';
+import ActionRow from './ActionRow';
+import Info from './Info';
 
 export {
     Header,
-    ActionRow,
     Actions,
+    ActionRow,
+    Info,
     styles,
 };
