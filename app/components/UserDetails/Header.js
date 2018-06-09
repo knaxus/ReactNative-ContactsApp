@@ -12,7 +12,7 @@ const Header = ({ picture, name }) => {
                 style={styles.image}
             />
             <Text style={styles.name}>
-                {capitalizeFirstLetter(name.first)} {capitalizeFirstLetter(name.first)}
+                {capitalizeFirstLetter(name.first)} {capitalizeFirstLetter(name.last)}
             </Text>
         </View>
     )
