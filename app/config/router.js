@@ -1,5 +1,5 @@
 import Recat from 'react';
-import { StackNavigator, TabNavigator } from 'react-navigation';
+import { createStackNavigator, createMaterialTopTabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Contacts from '../screens/Contacts';
@@ -9,7 +9,7 @@ import Me from '../screens/Me';
 
 import { capitalizeFirstLetter } from '../helpers/string';
 
-export const ContactStack = StackNavigator({
+export const ContactStack = createStackNavigator({
     Contacts: {
         screen: Contacts,
         navigationOptions: {
@@ -24,7 +24,7 @@ export const ContactStack = StackNavigator({
     },
 });
 
-export const NewContactStack = StackNavigator({
+export const NewContactStack = createStackNavigator({
     NewContact: {
         screen: NewContact,
         navigationOptions: {
@@ -33,7 +33,7 @@ export const NewContactStack = StackNavigator({
     },
 });
 
-export const MeStack = StackNavigator({
+export const MeStack = createStackNavigator({
     Me: {
         screen: Me,
         navigationOptions: {
@@ -42,7 +42,7 @@ export const MeStack = StackNavigator({
     },
 });
 
-export const Tabs = TabNavigator({
+export const Tabs = createMaterialTopTabNavigator({
     Contacts: {
         screen: ContactStack,
         navigationOptions: {
