@@ -13,7 +13,7 @@ import { DrawerButton } from '../components/Header';
 
 const LeftDrawerButton = ({ navigation }) => {
     if(Platform.OS === 'android') {
-        return <DrawerButton title="Open" onPress={() => navigation.navigate('DrawerOpen')} />;
+        return <DrawerButton title="Open" onPress={() => navigation.toggleDrawer()} />;
     }
 };
 
