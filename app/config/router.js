@@ -58,21 +58,21 @@ export const Tabs = createBottomTabNavigator({
         screen: ContactStack,
         navigationOptions: {
             tabBarLabel: 'Contacts',
-            tabBarIcon: ({ tintColor }) => <Icon name="ios-list" size={35} color={tintColor} />
+            tabBarIcon: ({ tintColor }) => <Icon name="ios-list" size={35} color={tintColor} />,
         }
     },
     NewContact: {
         screen: NewContactStack,
         navigationOptions: {
             tabBarLabel: 'New Contact',
-            tabBarIcon: ({ tintColor }) => <Icon name="ios-add" size={35} color={tintColor} />
+            tabBarIcon: ({ tintColor }) => <Icon name="ios-add" size={35} color={tintColor} />,
         }
     },
     Me: {
         screen: MeStack,
         navigationOptions: {
             tabBarLabel: 'Me',
-            tabBarIcon: ({ tintColor }) => <Icon name="ios-contact" size={35} color={tintColor} />
+            tabBarIcon: ({ tintColor }) => <Icon name="ios-contact" size={35} color={tintColor} />,
         }
     },
 });
@@ -81,18 +81,21 @@ export const Drawer = createDrawerNavigator({
     Contacts: {
         screen: ContactStack,
         navigationOptions: {
+            drawerIcon: ({ tintColor }) => <Icon name="md-list" size={25} color={tintColor} />,
             drawerLabel: 'Contacts',
         },
     },
     NewContact: {
         screen: NewContactStack,
         navigationOptions: {
+            drawerIcon: ({ tintColor }) => <Icon name="md-add" size={25} color={tintColor} />,
             drawerLabel: 'New Contact',
         },
     },
     Me: {
         screen: MeStack,
         navigationOptions: {
+            drawerIcon: ({ tintColor }) => <Icon name="md-contact" size={25} color={tintColor} />,
             drawerLabel: 'Me',
         },
     },
