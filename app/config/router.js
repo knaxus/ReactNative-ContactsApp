@@ -1,5 +1,6 @@
-import Recat from 'react';
-import { createStackNavigator, createMaterialTopTabNavigator } from 'react-navigation';
+import React from 'react';
+import { Button, Platform } from 'react-native';
+import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Contacts from '../screens/Contacts';
@@ -9,12 +10,19 @@ import Me from '../screens/Me';
 
 import { capitalizeFirstLetter } from '../helpers/string';
 
+const LeftDrawerButton = ({ navigation }) => {
+    if(Platform.OS === 'android') {
+        return <Button title="Open" onPress={() => navigation.navigate('DrawerOpen')} />;
+    }
+};
+
 export const ContactStack = createStackNavigator({
     Contacts: {
         screen: Contacts,
-        navigationOptions: {
+        navigationOptions: (props) => ({
             title: 'Contacts',
-        },
+            headerLeft: <LeftDrawerButton {...props} />,
+        }),
     },
     Details: {
         screen: Details,
@@ -27,22 +35,24 @@ export const ContactStack = createStackNavigator({
 export const NewContactStack = createStackNavigator({
     NewContact: {
         screen: NewContact,
-        navigationOptions: {
-            headerTitle: 'New Contact',
-        },
+        navigationOptions: (props) => ({
+            title: 'New Contact',
+            headerLeft: <LeftDrawerButton {...props} />,
+        }),
     },
 });
 
 export const MeStack = createStackNavigator({
     Me: {
         screen: Me,
-        navigationOptions: {
-            headerTitle: 'Me',
-        },
+        navigationOptions: (props) => ({
+            title: 'Me',
+            headerLeft: <LeftDrawerButton {...props} />,
+        }),
     },
 });
 
-export const Tabs = createMaterialTopTabNavigator({
+export const Tabs = createBottomTabNavigator({
     Contacts: {
         screen: ContactStack,
         navigationOptions: {
@@ -63,5 +73,30 @@ export const Tabs = createMaterialTopTabNavigator({
             tabBarLabel: 'Me',
             tabBarIcon: ({ tintColor }) => <Icon name="ios-contact" size={35} color={tintColor} />
         }
-    }
+    },
 });
+
+export const Drawer = createDrawerNavigator({
+    Contacts: {
+        screen: ContactStack,
+        navigationOptions: {
+            drawerLabel: 'Contacts',
+        },
+    },
+    NewContact: {
+        screen: NewContactStack,
+        navigationOptions: {
+            drawerLabel: 'New Contact',
+        },
+    },
+    Me: {
+        screen: MeStack,
+        navigationOptions: {
+            drawerLabel: 'Me',
+        },
+    },
+    },
+    {
+        animationEnabled: true,
+    },
+);

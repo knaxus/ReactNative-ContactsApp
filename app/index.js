@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Platform } from 'react-native';
 
-import { Tabs } from './config/router.js';
+import { Tabs, Drawer } from './config/router.js';
 
 export class App extends Component {
   render() {
-    return (
-      <Tabs />
-    )
+    if(Platform.OS === 'ios')
+      return <Tabs />
+    else
+      return (
+          <Drawer />
+      )
   }
 };
 
